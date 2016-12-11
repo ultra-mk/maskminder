@@ -54,10 +54,11 @@ class Scale(object):
     CROMATIC_FLAT = ['C', 'Db', 'D', 'Eb',
                      'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B']
 
-    def __init__(self, tonic):
+    def __init__(self, tonic, scale_type):
         self.tonic = tonic
 
-    def determine_chromatic(self):
+    @property
+    def chromatic(self):
         if self.tonic[-1] == 'b':
             return Scale.CROMATIC_FLAT
         else:
