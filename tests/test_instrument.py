@@ -16,10 +16,12 @@ class ITest(unittest.TestCase):
         self.assertEqual(164.8, ITest.ins.high_frequency)
 
     def test_frequency_range_in(self):
-        self.assertTrue(ITest.ins.low_frequency < 51.91 < ITest.ins.high_frequency)
+        self.assertTrue(ITest.ins.low_frequency <
+                        51.91 < ITest.ins.high_frequency)
 
     def test_frequency_range_out(self):
-        self.assertFalse(ITest.ins.low_frequency < 5588 < ITest.ins.high_frequency)
+        self.assertFalse(ITest.ins.low_frequency <
+                         5588 < ITest.ins.high_frequency)
 
     def test_bass_low(self):
         bass = i.BassGuitar()
