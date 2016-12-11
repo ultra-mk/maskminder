@@ -59,4 +59,13 @@ class Instrument(object):
     def frequency_range(self):
         return range(self.low_frequency, self.high_frequency)
 
+class BassGuitar(Instrument):
+
+    def __init__(self):
+        Instrument.__init__(self, low_note = Note('E', 1), high_note = Note('F', 3))
+
+class Guitar(Instrument):
+
+    def __init__(self):
+        Instrument.__init__(self, low_note = Note('E', 2), high_note = Note('D', 5))
 
