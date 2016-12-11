@@ -49,17 +49,24 @@ class Guitar(Instrument):
 
 
 class Scale(object):
-    CROMATIC = ['C', 'C#', 'D', 'D#', 'E',
-                'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
-    CROMATIC_FLAT = ['C', 'Db', 'D', 'Eb',
-                     'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B']
+    CHROMATIC = ['C', 'C#', 'D', 'D#', 'E',
+                 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+    CHROMATIC_FLAT = ['C', 'Db', 'D', 'Eb',
+                      'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B']
 
     def __init__(self, tonic, scale_type):
         self.tonic = tonic
+        self.scale_type = scale_type
+
+    # def notes(self):
+    #     if scale_type = 'Major':
+    #         return
 
     @property
     def chromatic(self):
         if self.tonic[-1] == 'b':
-            return Scale.CROMATIC_FLAT
+            tonic_index = Scale.CHROMATIC_FLAT.index(self.tonic)
+            return Scale.CHROMATIC_FLAT[tonic_index:] + Scale.CHROMATIC_FLAT[0:tonic_index]
         else:
-            return Scale.CROMATIC
+            tonic_index = Scale.CHROMATIC.index(self.tonic)
+            return Scale.CHROMATIC[tonic_index:] + Scale.CHROMATIC[0:tonic_index]

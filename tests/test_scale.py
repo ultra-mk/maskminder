@@ -14,7 +14,8 @@ class ScaleTest(unittest.TestCase):
         self.assertEqual('C', ScaleTest.c.tonic)
 
     def test_determine_cromatic_c(self):
-        self.assertEqual(s.Scale.CROMATIC, ScaleTest.c.chromatic)
+        self.assertEqual(s.Scale.CHROMATIC, ScaleTest.c.chromatic)
 
     def test_determine_cromatic_Bb(self):
-        self.assertEqual(s.Scale.CROMATIC_FLAT, ScaleTest.Bb.chromatic)
+        self.assertEqual(['Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A'],
+                         ScaleTest.Bb.chromatic)
