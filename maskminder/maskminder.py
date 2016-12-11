@@ -23,3 +23,22 @@ class Frequencies(object):
     def __init__(self):
         self.low = Frequencies.human_range[0]
         self.high = Frequencies.human_range[-1]
+
+#essentially a glorified hash table that will take a note and
+#octave and return a frequncy.
+#maybe thinking about eliminating Frequencies class and just
+#building the instruments with note objects
+
+class Note(object):
+    OCTAVES = {0:1,1:2,2:4,3:8,4:16,5:32,6:64,7:128,8:256}
+    FREQUENCIES = {'C':16.35, 'C#':17.32, 'Db':17.32, 'D':18.35, 'D#':19.45, 'Eb':19.45, 'F':21.83, 'F#':23.12, 'Gb':23.12, 'G':24.50, 'G#':25.96, 'Ab':25.96, 'A':27.50, 'A#':29.14, 'Bb':29.14, 'B':30.87}
+
+
+    def __init__(self, name, octave):
+        self.name = name
+        self.octave = octave
+
+    @property
+    def frequency(self):
+        return Note.FREQUENCIES[self.name] * Note.OCTAVES[self.octave]
+
