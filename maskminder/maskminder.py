@@ -62,11 +62,13 @@ class Scale(object):
     #     if scale_type = 'Major':
     #         return
 
+    def chromatic_scale_type(self, chromatic_scale):
+        tonic_index = chromatic_scale.index(self.tonic)
+        return chromatic_scale[tonic_index:] + chromatic_scale[0:tonic_index]
+
     @property
     def chromatic(self):
         if self.tonic[-1] == 'b':
-            tonic_index = Scale.CHROMATIC_FLAT.index(self.tonic)
-            return Scale.CHROMATIC_FLAT[tonic_index:] + Scale.CHROMATIC_FLAT[0:tonic_index]
+            return self.chromatic_scale_type(Scale.CHROMATIC_FLAT)
         else:
-            tonic_index = Scale.CHROMATIC.index(self.tonic)
-            return Scale.CHROMATIC[tonic_index:] + Scale.CHROMATIC[0:tonic_index]
+            return self.chromatic_scale_type(Scale.CHROMATIC)
