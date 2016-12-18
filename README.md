@@ -1,4 +1,4 @@
-(https://travis-ci.org/michaelkunc/maskminder.svg?branch=master)
+[![Build Status](https://travis-ci.org/michaelkunc/maskminder.png?branch=master)](https://travis-ci.org/michaelkunc/maskminder)
 
 #Maskminder
 
