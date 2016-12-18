@@ -1,4 +1,4 @@
-[https://travis-ci.org/michaelkunc/maskminder.svg?branch=master]
+[(https://travis-ci.org/michaelkunc/maskminder.svg?branch=master)]
 
 #Maskminder
 
