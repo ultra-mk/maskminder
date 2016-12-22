@@ -69,7 +69,16 @@ class Scale(object):
         else:
             return self.chromatic_type(Scale.CHROMATIC)
 
+
+# this will need to return Note objects at some point
+
     @property
     def notes(self):
         major = [0, 2, 4, 5, 7, 9, 11]
-        return [self.chromatic[i] for i in major]
+        natural_minor = [0, 2, 3, 5, 7, 8, 10]
+        if self.scale_type == 'major':
+            return [self.chromatic[i] for i in major]
+        elif self.scale_type == 'natural minor':
+            return [self.chromatic[i] for i in natural_minor]
+        else:
+            return 'Not a scale type'
