@@ -58,17 +58,18 @@ class Scale(object):
         self.tonic = tonic
         self.scale_type = scale_type
 
-    # def notes(self):
-    #     if scale_type = 'Major':
-    #         return
-
-    def chromatic_scale_type(self, chromatic_scale):
+    def chromatic_type(self, chromatic_scale):
         tonic_index = chromatic_scale.index(self.tonic)
         return chromatic_scale[tonic_index:] + chromatic_scale[0:tonic_index]
 
     @property
     def chromatic(self):
         if self.tonic[-1] == 'b':
-            return self.chromatic_scale_type(Scale.CHROMATIC_FLAT)
+            return self.chromatic_type(Scale.CHROMATIC_FLAT)
         else:
-            return self.chromatic_scale_type(Scale.CHROMATIC)
+            return self.chromatic_type(Scale.CHROMATIC)
+
+    @property
+    def notes(self):
+        major = [0, 2, 4, 5, 7, 9, 11]
+        return [self.chromatic[i] for i in major]

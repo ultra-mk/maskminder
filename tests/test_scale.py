@@ -17,14 +17,22 @@ class ScaleTest(unittest.TestCase):
 
     def test_chromatic_scale_type(self):
         self.assertEqual(['C', 'C#', 'D', 'D#', 'E',
-                          'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'], ScaleTest.C.chromatic_scale_type(s.Scale.CHROMATIC))
+                          'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'], ScaleTest.C.chromatic_type(s.Scale.CHROMATIC))
 
     def test_chromatic_scale_type(self):
-        self.assertEqual(ScaleTest.Bb_chromatic, ScaleTest.Bb.chromatic_scale_type(
+        self.assertEqual(ScaleTest.Bb_chromatic, ScaleTest.Bb.chromatic_type(
             s.Scale.CHROMATIC_FLAT))
 
-    def test_determine_cromatic_c(self):
+    def test_determine_cromatic_C(self):
         self.assertEqual(s.Scale.CHROMATIC, ScaleTest.C.chromatic)
 
     def test_determine_cromatic_Bb(self):
         self.assertEqual(ScaleTest.Bb_chromatic, ScaleTest.Bb.chromatic)
+
+    def test_notes_C_major(self):
+        self.assertEqual(['C', 'D', 'E', 'F', 'G', 'A', 'B'],
+                         ScaleTest.C.notes)
+
+    def test_notes_Bb_major(self):
+        self.assertEqual(['Bb', 'C', 'D', 'Eb', 'F', 'G', 'A'],
+                         ScaleTest.Bb.notes)
