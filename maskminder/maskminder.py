@@ -54,9 +54,12 @@ class Scale(object):
     CHROMATIC_FLAT = ['C', 'Db', 'D', 'Eb',
                       'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B']
 
+    FLAT_KEYS = [('F', 'major'), ('C', 'natural minor')]
+
     def __init__(self, tonic, scale_type):
         self.tonic = tonic
         self.scale_type = scale_type
+        self.key = (self.tonic, self.scale_type)
 
     def chromatic_type(self, chromatic_scale):
         tonic_index = chromatic_scale.index(self.tonic)
@@ -64,13 +67,10 @@ class Scale(object):
 
     @property
     def chromatic(self):
-        if self.tonic[-1] == 'b':
+        if self.tonic[-1] == 'b' or self.key in Scale.FLAT_KEYS:
             return self.chromatic_type(Scale.CHROMATIC_FLAT)
         else:
             return self.chromatic_type(Scale.CHROMATIC)
-
-
-# this will need to return Note objects at some point
 
     @property
     def notes(self):
