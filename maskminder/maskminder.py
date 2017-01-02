@@ -57,6 +57,9 @@ class Scale(object):
     FLAT_KEYS = [('F', 'major'), ('C', 'natural minor'),
                  ('D', 'natural minor'), ('C', 'natural minor'), ('G', 'natural minor')]
 
+    FORMULA = {'major': [0, 2, 4, 5, 7, 9, 11],
+               'natural minor': [0, 2, 3, 5, 7, 8, 10]}
+
     def __init__(self, tonic, scale_type):
         self.tonic = tonic
         self.scale_type = scale_type
@@ -78,11 +81,9 @@ class Scale(object):
 
     @property
     def notes(self):
-        major = [0, 2, 4, 5, 7, 9, 11]
-        natural_minor = [0, 2, 3, 5, 7, 8, 10]
         if self.scale_type == 'major':
-            return [self.chromatic[i] for i in major]
+            return [self.chromatic[i] for i in Scale.FORMULA['major']]
         elif self.scale_type == 'natural minor':
-            return [self.chromatic[i] for i in natural_minor]
+            return [self.chromatic[i] for i in Scale.FORMULA['natural minor']]
         else:
             return 'Not a scale type'
