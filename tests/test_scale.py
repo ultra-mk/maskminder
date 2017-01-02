@@ -13,6 +13,8 @@ class ScaleTest(unittest.TestCase):
         ScaleTest.Bbmaj = s.Scale('Bb', 'major')
         ScaleTest.Cnatmin = s.Scale('C', 'natural minor')
         ScaleTest.Dnatmin = s.Scale('D', 'natural minor')
+        ScaleTest.Gnatmin = s.Scale('G', 'natural minor')
+        ScaleTest.Fmaj = s.Scale('F', 'major')
 
     def test_tonic_c(self):
         self.assertEqual('C', ScaleTest.Cmaj.tonic)
@@ -46,3 +48,11 @@ class ScaleTest(unittest.TestCase):
     def test_notes_D_natural_minor(self):
         self.assertEqual(['D', 'E', 'F', 'G', 'A', 'Bb', 'C'],
                          ScaleTest.Dnatmin.notes)
+
+    def test_notes_g_natural_minor(self):
+        self.assertEqual(['G', 'A', 'Bb', 'C', 'D', 'Eb',
+                          'F'], ScaleTest.Gnatmin.notes)
+
+    def test_notes_f_major(self):
+        self.assertEqual(['F', 'G', 'A', 'Bb', 'C', 'D', 'E'],
+                         ScaleTest.Fmaj.notes)

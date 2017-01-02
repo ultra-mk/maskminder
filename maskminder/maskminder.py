@@ -55,7 +55,7 @@ class Scale(object):
                       'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B']
 
     FLAT_KEYS = [('F', 'major'), ('C', 'natural minor'),
-                 ('D', 'natural minor')]
+                 ('D', 'natural minor'), ('C', 'natural minor'), ('G', 'natural minor')]
 
     def __init__(self, tonic, scale_type):
         self.tonic = tonic
