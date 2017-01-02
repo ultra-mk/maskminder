@@ -81,9 +81,4 @@ class Scale(object):
 
     @property
     def notes(self):
-        if self.scale_type == 'major':
-            return [self.chromatic[i] for i in Scale.FORMULA['major']]
-        elif self.scale_type == 'natural minor':
-            return [self.chromatic[i] for i in Scale.FORMULA['natural minor']]
-        else:
-            return 'Not a scale type'
+        return [self.chromatic[i] for i in Scale.FORMULA[self.scale_type]]
