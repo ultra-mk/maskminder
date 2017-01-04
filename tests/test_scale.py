@@ -19,6 +19,9 @@ class ScaleTest(unittest.TestCase):
     def test_tonic_c(self):
         self.assertEqual('C', ScaleTest.Cmaj.tonic)
 
+    # def test_init_scale_not_supported(self):
+    #     self.assertEqual('BUTT!', s.Scale('D', 'harmonic minor').scale_type)
+
     def test_chromatic_scale_type(self):
         self.assertEqual(['C', 'C#', 'D', 'D#', 'E',
                           'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'], ScaleTest.Cmaj.chromatic_type(s.Scale.CHROMATIC))
