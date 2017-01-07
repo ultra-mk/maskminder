@@ -62,7 +62,10 @@ class Scale(object):
 
     def __init__(self, tonic, scale_type):
         self.tonic = tonic
-        self.scale_type = scale_type
+        if scale_type in Scale.FORMULA.keys():
+            self.scale_type = scale_type
+        else:
+            raise Exception('This scale is not yet supported.')
 
     def chromatic_type(self, chromatic_scale):
         tonic_index = chromatic_scale.index(self.tonic)
