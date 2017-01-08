@@ -86,3 +86,29 @@ class Scale(object):
     @property
     def notes(self):
         return [self.chromatic[i] for i in Scale.FORMULA[self.scale_type]]
+
+
+class Chord(Scale):
+
+    def __init__(self, tonic, chord_type):
+        self.tonic = tonic
+        self.chord_type = type
+        self.scale_type = self.determine_scale(chord_type)
+
+    def determine_scale(self, chord_type):
+        if 'minor' in chord_type:
+            return 'natural minor'
+        else:
+            return 'major'
+
+    @property
+    def root(self):
+        return self.notes[0]
+
+    @property
+    def third(self):
+        return self.notes[2]
+
+    @property
+    def fifth(self):
+        return self.notes[4]
