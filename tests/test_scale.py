@@ -15,13 +15,14 @@ class ScaleTest(unittest.TestCase):
         ScaleTest.Dnatmin = s.Scale('D', 'natural minor')
         ScaleTest.Gnatmin = s.Scale('G', 'natural minor')
         ScaleTest.Fmaj = s.Scale('F', 'major')
+        ScaleTest.Charm = s.Scale('C', 'harmonic minor')
 
     def test_tonic_c(self):
         self.assertEqual('C', ScaleTest.Cmaj.tonic)
 
     def test_init_scale_not_supported(self):
         self.assertRaises(Exception, s.Scale,
-                          'D', 'harmonic minor')
+                          'D', 'melodic minor')
 
     def test_chromatic_scale_type(self):
         self.assertEqual(['C', 'C#', 'D', 'D#', 'E',
@@ -60,3 +61,7 @@ class ScaleTest(unittest.TestCase):
     def test_notes_f_major(self):
         self.assertEqual(['F', 'G', 'A', 'Bb', 'C', 'D', 'E'],
                          ScaleTest.Fmaj.notes)
+
+    def test_notes_c_harmonic_minor(self):
+        self.assertEqual(['C', 'D', 'Eb', 'F', 'G', 'Ab',
+                          'B'], ScaleTest.Charm.notes)
