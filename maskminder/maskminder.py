@@ -49,17 +49,22 @@ class Guitar(Instrument):
 
 
 class Scale(object):
+    # ALERT - take a look at using integer notation
+    # https://en.wikipedia.org/wiki/Pitch_class#Integer_notation
     CHROMATIC = ['C', 'C#', 'D', 'D#', 'E',
                  'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
     CHROMATIC_FLAT = ['C', 'Db', 'D', 'Eb',
                       'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B']
 
     FLAT_KEYS = [('F', 'major'), ('C', 'natural minor'),
-                 ('D', 'natural minor'), ('C', 'natural minor'), ('G', 'natural minor'), ('C', 'harmonic minor')]
+                 ('D', 'natural minor'), ('C', 'natural minor'),
+                 ('G', 'natural minor'), ('C', 'harmonic minor'),
+                 ('C', 'diminished'), ('F', 'diminished')]
 
     FORMULA = {'major': [0, 2, 4, 5, 7, 9, 11],
                'natural minor': [0, 2, 3, 5, 7, 8, 10],
-               'harmonic minor': [0, 2, 3, 5, 7, 8, 11]}
+               'harmonic minor': [0, 2, 3, 5, 7, 8, 11],
+               'diminished': [0, 2, 3, 5, 6, 8, 9, 11]}
 
     def __init__(self, tonic, scale_type):
         self.tonic = tonic
@@ -98,6 +103,8 @@ class Chord(Scale):
     def determine_scale(self, chord_type):
         if 'minor' in chord_type:
             return 'natural minor'
+        elif chord_type == 'diminished':
+            return 'diminished'
         else:
             return 'major'
 

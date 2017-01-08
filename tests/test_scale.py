@@ -16,6 +16,7 @@ class ScaleTest(unittest.TestCase):
         ScaleTest.Gnatmin = s.Scale('G', 'natural minor')
         ScaleTest.Fmaj = s.Scale('F', 'major')
         ScaleTest.Charm = s.Scale('C', 'harmonic minor')
+        ScaleTest.Cdim = s.Scale('C', 'diminished')
 
     def test_tonic_c(self):
         self.assertEqual('C', ScaleTest.Cmaj.tonic)
@@ -65,3 +66,7 @@ class ScaleTest(unittest.TestCase):
     def test_notes_c_harmonic_minor(self):
         self.assertEqual(['C', 'D', 'Eb', 'F', 'G', 'Ab',
                           'B'], ScaleTest.Charm.notes)
+
+    def test_notes_c_dim(self):
+        self.assertEqual(['C', 'D', 'Eb', 'F', 'Gb', 'Ab', 'A', 'B'],
+                         ScaleTest.Cdim.notes)
