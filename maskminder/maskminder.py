@@ -64,7 +64,8 @@ class Scale(object):
     FORMULA = {'major': [0, 2, 4, 5, 7, 9, 11],
                'natural minor': [0, 2, 3, 5, 7, 8, 10],
                'harmonic minor': [0, 2, 3, 5, 7, 8, 11],
-               'diminished': [0, 2, 3, 5, 6, 8, 9, 11]}
+               'diminished': [0, 2, 3, 5, 6, 8, 9, 11],
+               'augmented': [0, 3, 4, 7, 8, 11]}
 
     def __init__(self, tonic, scale_type):
         self.tonic = tonic
@@ -105,6 +106,8 @@ class Chord(Scale):
             return 'natural minor'
         elif chord_type == 'diminished':
             return 'diminished'
+        elif chord_type == 'augmented':
+            return 'augmented'
         else:
             return 'major'
 
