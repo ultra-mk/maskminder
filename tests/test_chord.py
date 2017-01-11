@@ -10,6 +10,7 @@ class ChordTest(unittest.TestCase):
         ChordTest.Cmaj = s.Chord('C', 'major')
         ChordTest.Dmin = s.Chord('D', 'minor')
         ChordTest.Fdim = s.Chord('F', 'diminished')
+        ChordTest.Csharpdim = s.Chord('C#', 'diminished')
 
     def test_c_major_root(self):
         self.assertEqual('C', ChordTest.Cmaj.root)
@@ -37,3 +38,12 @@ class ChordTest(unittest.TestCase):
 
     def test_f_dim_fifth(self):
         self.assertEqual('B', ChordTest.Fdim.fifth)
+
+    def test_c_sharp_dim_root(self):
+        self.assertEqual('C#', ChordTest.Csharpdim.root)
+
+    def test_c_sharp_dim_root(self):
+        self.assertEqual('E', ChordTest.Csharpdim.third)
+
+    def test_c_sharp_dim_root(self):
+        self.assertEqual('G', ChordTest.Csharpdim.fifth)
