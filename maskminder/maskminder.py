@@ -104,12 +104,8 @@ class Chord(Scale):
     def determine_scale(self, chord_type):
         if 'minor' in chord_type:
             return 'natural minor'
-        elif chord_type == 'diminished':
-            return 'diminished'
-        elif chord_type == 'augmented':
-            return 'augmented'
         else:
-            return 'major'
+            return chord_type
 
     @property
     def root(self):
