@@ -12,6 +12,8 @@ class ChordTest(unittest.TestCase):
         ChordTest.Fdim = s.Chord('F', 'diminished')
         ChordTest.Csharpdim = s.Chord('C#', 'diminished')
         ChordTest.Caug = s.Chord('C', 'augmented')
+        # this is holding a mock chord object so I can develop the chord parser
+        ChordTest.parser = s.Chord('C', 'major')
 
     def test_c_major_root(self):
         self.assertEqual('C', ChordTest.Cmaj.root)
@@ -57,3 +59,12 @@ class ChordTest(unittest.TestCase):
 
     def test_c_aug_fifth(self):
         self.assertEqual('G#', ChordTest.Caug.fifth)
+
+# these are dev tests for working the new chord_parser()
+
+    def chord_parser_major(self):
+        self.assertEqual(
+            ('C', 'major'), ChordTest.parser.parser('C'))
+
+    def chord_parser_minor(self):
+        self.assertEqual(('D', 'minor'), ChordTest.parser.parser('Dm'))

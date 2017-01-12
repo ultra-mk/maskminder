@@ -106,6 +106,20 @@ class Chord(Scale):
             return 'natural minor'
         else:
             return chord_type
+# this will be the method that interprets 'C' as 'C Major'
+# and 'Cm' as 'C minor'. Rather than having chord_type as an argument.
+
+    def parser(self, chord):
+        if len(chord) == 1:
+            tonic = chord
+            chord_type = 'major'
+            return (tonic, chord_type)
+        elif len(chord) == 2 and chord[-1] == 'm':
+            tonic = chord[0]
+            chord_type = 'minor'
+            return (tonic, chord_type)
+        else:
+            'Buttons!'
 
     @property
     def root(self):
