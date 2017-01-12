@@ -60,11 +60,16 @@ class ChordTest(unittest.TestCase):
     def test_c_aug_fifth(self):
         self.assertEqual('G#', ChordTest.Caug.fifth)
 
-# these are dev tests for working the new chord_parser()
-
     def chord_parser_major(self):
         self.assertEqual(
             ('C', 'major'), ChordTest.parser.parser('C'))
 
     def chord_parser_minor(self):
         self.assertEqual(('D', 'minor'), ChordTest.parser.parser('Dm'))
+
+    def chord_parser_dim(self):
+        self.assertEqual(('E', 'diminished'),
+                         ChordTest.parser.parser('E dim'))
+
+    def chord_parser_dom_seventh(self):
+        self.assertEqual(('G', 'seventh'), ChordTest.parser.parser('G7'))
