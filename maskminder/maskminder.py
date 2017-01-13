@@ -96,18 +96,15 @@ class Scale(object):
 
 class Chord(Scale):
 
-    def __init__(self, tonic, chord_type):
-        self.tonic = tonic
-        self.chord_type = type
-        self.scale_type = self.determine_scale(chord_type)
+    def __init__(self, chord):
+        self.tonic, self.chord_type = self.parser(chord)
+        self.scale_type = self.determine_scale(self.chord_type)
 
     def determine_scale(self, chord_type):
         if 'minor' in chord_type:
             return 'natural minor'
         else:
             return chord_type
-# this will be the method that interprets 'C' as 'C Major'
-# and 'Cm' as 'C minor'. Rather than having chord_type as an argument.
 
     def parser(self, chord):
         tonic, chord_type = None, None
@@ -117,7 +114,7 @@ class Chord(Scale):
         elif len(chord) == 2 and chord[-1] == 'm':
             tonic = chord[0]
             chord_type = 'minor'
-        elif len(chord) == 5 and chord[2:] == 'dim':
+        elif len(chord) == 5 or len(chord) == 6 and chord[-3:] == 'dim':
             tonic = chord[0]
             chord_type = 'diminished'
         elif len(chord) == 5 and chord[2:] == 'aug':
