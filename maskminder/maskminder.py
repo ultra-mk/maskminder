@@ -120,6 +120,9 @@ class Chord(Scale):
         elif len(chord) == 5 and chord[2:] == 'dim':
             tonic = chord[0]
             chord_type = 'diminished'
+        elif len(chord) == 5 and chord[2:] == 'aug':
+            tonic = chord[0]
+            chord_type = 'augmented'
         elif len(chord) == 2 and chord[-1] == '7':
             tonic = chord[0]
             chord_type = 'seventh'

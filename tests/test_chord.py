@@ -71,5 +71,8 @@ class ChordTest(unittest.TestCase):
         self.assertEqual(('E', 'diminished'),
                          ChordTest.parser.parser('E dim'))
 
+    def test_chord_parser_aug(self):
+        self.assertEqual(('F', 'augmented'), ChordTest.parser.parser('F aug'))
+
     def test_chord_parser_dom_seventh(self):
         self.assertEqual(('G', 'seventh'), ChordTest.parser.parser('G7'))
