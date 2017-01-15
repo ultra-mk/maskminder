@@ -72,7 +72,13 @@ class ChordTest(unittest.TestCase):
     #                      ChordTest.parser.parser('E dim'))
 
     # def test_chord_parser_aug(self):
-    #     self.assertEqual(('F', 'augmented'), ChordTest.parser.parser('F aug'))
+    # self.assertEqual(('F', 'augmented'), ChordTest.parser.parser('F aug'))
 
     # def test_chord_parser_dom_seventh(self):
     #     self.assertEqual(('G', 'seventh'), ChordTest.parser.parser('G7'))
+
+    def test_tonic(self):
+        self.assertEqual('C', ChordTest.Cmaj.tonic_1('C'))
+
+    def test_tonic_csharp(self):
+        self.assertEqual('C#', ChordTest.Cmaj.tonic_1('C#'))

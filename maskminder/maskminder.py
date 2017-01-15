@@ -105,6 +105,8 @@ class Chord(Scale):
             return 'natural minor'
         else:
             return chord_type
+# parser breaks on sharps and flats. Going to split this into
+# two methods
 
     def parser(self, chord):
         tonic, chord_type = None, None
@@ -126,6 +128,14 @@ class Chord(Scale):
         else:
             'Buttons!'
         return (tonic, chord_type)
+
+    def tonic_1(self, chord):
+        if len(chord) == 1:
+            return chord[0]
+        elif chord[1] == '#' or chord[1] == 'b':
+            return chord[0:2]
+        else:
+            return chord[0]
 
     @property
     def root(self):
