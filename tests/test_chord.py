@@ -11,9 +11,7 @@ class ChordTest(unittest.TestCase):
         ChordTest.Dmin = s.Chord('Dm')
         ChordTest.Fdim = s.Chord('F dim')
         ChordTest.Csharpdim = s.Chord('C# dim')
-        # ChordTest.Caug = s.Chord('C', 'augmented')
-        # # this is holding a mock chord object so I can develop the chord parser
-        # ChordTest.parser = s.Chord('C', 'major')
+        # ChordTest.Caug = s.Chord('C aug')
 
     def test_c_major_root(self):
         self.assertEqual('C', ChordTest.Cmaj.root)
@@ -42,14 +40,14 @@ class ChordTest(unittest.TestCase):
     def test_f_dim_fifth(self):
         self.assertEqual('B', ChordTest.Fdim.fifth)
 
-    # def test_c_sharp_dim_root(self):
-    #     self.assertEqual('C#', ChordTest.Csharpdim.root)
+    def test_c_sharp_dim_root(self):
+        self.assertEqual('C#', ChordTest.Csharpdim.root)
 
-    # def test_c_sharp_dim_root(self):
-    #     self.assertEqual('E', ChordTest.Csharpdim.third)
+    def test_c_sharp_dim_third(self):
+        self.assertEqual('E', ChordTest.Csharpdim.third)
 
-    # def test_c_sharp_dim_root(self):
-    #     self.assertEqual('G', ChordTest.Csharpdim.fifth)
+    def test_c_sharp_dim_fifth(self):
+        self.assertEqual('G', ChordTest.Csharpdim.fifth)
 
     # def test_c_aug_root(self):
     #     self.assertEqual('C', ChordTest.Caug.root)
@@ -59,29 +57,3 @@ class ChordTest(unittest.TestCase):
 
     # def test_c_aug_fifth(self):
     #     self.assertEqual('G#', ChordTest.Caug.fifth)
-
-    # def test_chord_parser_major(self):
-    #     self.assertEqual(
-    #         ('C', 'major'), ChordTest.parser.parser('C'))
-
-    # def test_chord_parser_minor(self):
-    #     self.assertEqual(('D', 'minor'), ChordTest.parser.parser('Dm'))
-
-    # def test_chord_parser_dim(self):
-    #     self.assertEqual(('E', 'diminished'),
-    #                      ChordTest.parser.parser('E dim'))
-
-    # def test_chord_parser_aug(self):
-    # self.assertEqual(('F', 'augmented'), ChordTest.parser.parser('F aug'))
-
-    # def test_chord_parser_dom_seventh(self):
-    #     self.assertEqual(('G', 'seventh'), ChordTest.parser.parser('G7'))
-
-    def test_tonic(self):
-        self.assertEqual('C', ChordTest.Cmaj.tonic_1('C'))
-
-    def test_tonic_csharp(self):
-        self.assertEqual('C#', ChordTest.Cmaj.tonic_1('C#'))
-
-    def test_tonic_Bb(self):
-        self.assertEqual('Bb', ChordTest.Cmaj.tonic_1('Bb'))

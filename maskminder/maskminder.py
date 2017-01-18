@@ -97,7 +97,8 @@ class Scale(object):
 class Chord(Scale):
 
     def __init__(self, chord):
-        self.tonic, self.chord_type = self.parser(chord)
+        self.tonic = self.tonic(chord)
+        self.chord_type = self.parser(chord)
         self.scale_type = self.determine_scale(self.chord_type)
 
     def determine_scale(self, chord_type):
@@ -105,31 +106,24 @@ class Chord(Scale):
             return 'natural minor'
         else:
             return chord_type
-# parser breaks on sharps and flats. Going to split this into
-# two methods
 
     def parser(self, chord):
-        tonic, chord_type = None, None
+        chord_type = None
         if len(chord) == 1:
-            tonic = chord
             chord_type = 'major'
         elif len(chord) == 2 and chord[-1] == 'm':
-            tonic = chord[0]
             chord_type = 'minor'
         elif len(chord) == 5 or len(chord) == 6 and chord[-3:] == 'dim':
-            tonic = chord[0]
             chord_type = 'diminished'
         elif len(chord) == 5 and chord[2:] == 'aug':
-            tonic = chord[0]
             chord_type = 'augmented'
         elif len(chord) == 2 and chord[-1] == '7':
-            tonic = chord[0]
             chord_type = 'seventh'
         else:
             'Buttons!'
-        return (tonic, chord_type)
+        return chord_type
 
-    def tonic_1(self, chord):
+    def tonic(self, chord):
         if len(chord) == 1:
             return chord[0]
         elif chord[1] == '#' or chord[1] == 'b':
