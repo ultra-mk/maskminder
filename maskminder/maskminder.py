@@ -113,14 +113,14 @@ class Chord(Scale):
             chord_type = 'major'
         elif len(chord) == 2 and chord[-1] == 'm':
             chord_type = 'minor'
-        elif len(chord) == 5 or len(chord) == 6 and chord[-3:] == 'dim':
+        elif chord[-3:] == 'dim':
             chord_type = 'diminished'
-        elif len(chord) == 5 and chord[2:] == 'aug':
+        elif chord[-3:] == 'aug':
             chord_type = 'augmented'
         elif len(chord) == 2 and chord[-1] == '7':
             chord_type = 'seventh'
         else:
-            'Buttons!'
+            'This chord type is not supported'
         return chord_type
 
     def tonic(self, chord):
