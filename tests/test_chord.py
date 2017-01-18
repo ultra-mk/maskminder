@@ -82,3 +82,6 @@ class ChordTest(unittest.TestCase):
 
     def test_tonic_csharp(self):
         self.assertEqual('C#', ChordTest.Cmaj.tonic_1('C#'))
+
+    def test_tonic_Bb(self):
+        self.assertEqual('Bb', ChordTest.Cmaj.tonic_1('Bb'))
