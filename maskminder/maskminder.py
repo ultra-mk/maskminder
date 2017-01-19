@@ -96,34 +96,31 @@ class Scale(object):
 
 
 class Chord(Scale):
+    CHORD_TYPES = {'m': 'minor', 'dim': 'diminished',
+                   'aug': 'augmented', '7': 'seventh', 'maj7': 'major seventh'}
 
     def __init__(self, chord):
         self.tonic = self.tonic(chord)
-        self.chord_type = self.parser(chord)
-        self.scale_type = self.determine_scale(self.chord_type)
+        self.chord_type = self.chord_type(chord)
+        self.scale_type = self.scale_type(self.chord_type)
 
-    def determine_scale(self, chord_type):
+    def scale_type(self, chord_type):
         if 'minor' in chord_type:
             return 'natural minor'
-        elif 'seventh' in chord_type:
+        elif chord_type == 'seventh':
             return 'mixolydian'
+        elif chord_type == 'major seventh':
+            return 'major'
         else:
             return chord_type
 
-    def parser(self, chord):
+    def chord_type(self, chord):
         chord_type = None
         if len(chord) == 1:
             chord_type = 'major'
-        elif len(chord) == 2 and chord[-1] == 'm':
-            chord_type = 'minor'
-        elif chord[-3:] == 'dim':
-            chord_type = 'diminished'
-        elif chord[-3:] == 'aug':
-            chord_type = 'augmented'
-        elif len(chord) == 2 and chord[-1] == '7':
-            chord_type = 'seventh'
         else:
-            'This chord type is not supported'
+            chord_type = Chord.CHORD_TYPES[
+                chord.replace(self.tonic, '').strip()]
         return chord_type
 
     def tonic(self, chord):
@@ -148,5 +145,5 @@ class Chord(Scale):
 
     @property
     def seventh(self):
-        if self.chord_type == 'seventh':
+        if self.chord_type == 'seventh' or self.chord_type == 'major seventh':
             return self.notes[6]
