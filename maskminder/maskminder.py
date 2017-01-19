@@ -145,3 +145,8 @@ class Chord(Scale):
     @property
     def fifth(self):
         return self.notes[4]
+
+    @property
+    def seventh(self):
+        if self.chord_type == 'seventh':
+            return self.notes[6]
