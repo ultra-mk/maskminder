@@ -1,9 +1,8 @@
-import maskminder as mm
+import maskminder
 
 
 def main():
-    # chord = mm.Chord('G7')
-    print('is this thing on?')
+    print(maskminder)
 
 if __name__ == '__main__':
     main()

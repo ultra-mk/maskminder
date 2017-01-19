@@ -1,0 +1,6 @@
+setup.py
+maskminder.egg-info/PKG-INFO
+maskminder.egg-info/SOURCES.txt
+maskminder.egg-info/dependency_links.txt
+maskminder.egg-info/entry_points.txt
+maskminder.egg-info/top_level.txt

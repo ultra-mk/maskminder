@@ -1,8 +1,3 @@
-class MaskMinder(object):
-
-    def __init__(self, tonic):
-        self.tonic = tonic
-
 
 class Note(object):
     FREQUENCIES = {'C': 16.35, 'C#': 17.32, 'Db': 17.32, 'D': 18.35, 'D#': 19.45, 'Eb': 19.45, 'E': 20.60, 'F': 21.83,
