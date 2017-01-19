@@ -18,6 +18,7 @@ class ScaleTest(unittest.TestCase):
         ScaleTest.Charm = s.Scale('C', 'harmonic minor')
         ScaleTest.Cdim = s.Scale('C', 'diminished')
         ScaleTest.Caug = s.Scale('C', 'augmented')
+        ScaleTest.Gmix = s.Scale('G', 'mixolydian')
 
     def test_tonic_c(self):
         self.assertEqual('C', ScaleTest.Cmaj.tonic)
@@ -26,11 +27,11 @@ class ScaleTest(unittest.TestCase):
         self.assertRaises(Exception, s.Scale,
                           'D', 'melodic minor')
 
-    def test_chromatic_scale_type(self):
+    def test_chromatic_scale_type_c(self):
         self.assertEqual(['C', 'C#', 'D', 'D#', 'E',
                           'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'], ScaleTest.Cmaj.chromatic_type(s.Scale.CHROMATIC))
 
-    def test_chromatic_scale_type(self):
+    def test_chromatic_scale_type_Bb(self):
         self.assertEqual(ScaleTest.Bb_chromatic, ScaleTest.Bbmaj.chromatic_type(
             s.Scale.CHROMATIC_FLAT))
 
@@ -75,3 +76,7 @@ class ScaleTest(unittest.TestCase):
     def test_notes_c_aug(self):
         self.assertEqual(['C', 'D#', 'E', 'G', 'G#', 'B'],
                          ScaleTest.Caug.notes)
+
+    def test_notes_G_mix(self):
+        self.assertEqual(['G', 'A', 'B', 'C', 'D', 'E', 'F'],
+                         ScaleTest.Gmix.notes)
