@@ -1,6 +1,6 @@
 import unittest
 
-from maskminder import maskminder as s
+from maskminder import scale_chord as s
 
 
 class ScaleTest(unittest.TestCase):
@@ -80,3 +80,7 @@ class ScaleTest(unittest.TestCase):
     def test_notes_G_mix(self):
         self.assertEqual(['G', 'A', 'B', 'C', 'D', 'E', 'F'],
                          ScaleTest.Gmix.notes)
+
+
+if __name__ == '__main__':
+    unittest.main()

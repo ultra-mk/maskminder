@@ -1,6 +1,6 @@
 import unittest
 
-from maskminder import maskminder as n
+from maskminder import note_instrument as n
 
 
 class NTest(unittest.TestCase):
@@ -20,3 +20,6 @@ class NTest(unittest.TestCase):
     def test_d_flat_6(self):
         Db = n.Note('Db', 6)
         self.assertEqual(1108.48, Db.frequency)
+
+if __name__ == '__main__':
+    unittest.main()
