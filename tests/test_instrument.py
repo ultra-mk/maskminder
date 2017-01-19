@@ -1,6 +1,6 @@
 import unittest
 
-from maskminder import maskminder as i
+from maskminder import note_instrument as i
 
 
 class ITest(unittest.TestCase):
@@ -38,3 +38,6 @@ class ITest(unittest.TestCase):
     def test_guitar_high(self):
         guitar = i.Guitar()
         self.assertEqual(587.2, guitar.high_frequency)
+
+if __name__ == '__main__':
+    unittest.main()

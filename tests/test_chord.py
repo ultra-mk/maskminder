@@ -1,6 +1,6 @@
 import unittest
 
-from maskminder import maskminder as s
+from maskminder import scale_chord as s
 
 
 class ChordTest(unittest.TestCase):
@@ -89,3 +89,6 @@ class ChordTest(unittest.TestCase):
 
     def test_Dmaj7_seventh(self):
         self.assertEqual('C#', ChordTest.Dmaj7.seventh)
+
+if __name__ == '__main__':
+    unittest.main()
