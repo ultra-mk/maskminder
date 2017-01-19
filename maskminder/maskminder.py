@@ -96,8 +96,11 @@ class Scale(object):
 
 
 class Chord(Scale):
-    CHORD_TYPES = {'m': 'minor', 'dim': 'diminished',
-                   'aug': 'augmented', '7': 'seventh', 'maj7': 'major seventh'}
+    TYPES = {'m': 'minor', 'dim': 'diminished',
+             'aug': 'augmented', '7': 'seventh', 'maj7': 'major seventh'}
+
+    CHORD_TO_SCALE = {'minor': 'natural minor',
+                      'seventh': 'mixolydian', 'major seventh': 'major'}
 
     def __init__(self, chord):
         self.tonic = self.tonic(chord)
@@ -105,23 +108,10 @@ class Chord(Scale):
         self.scale_type = self.scale_type(self.chord_type)
 
     def scale_type(self, chord_type):
-        if 'minor' in chord_type:
-            return 'natural minor'
-        elif chord_type == 'seventh':
-            return 'mixolydian'
-        elif chord_type == 'major seventh':
-            return 'major'
-        else:
-            return chord_type
+        return Chord.CHORD_TO_SCALE.get(chord_type, chord_type)
 
     def chord_type(self, chord):
-        chord_type = None
-        if len(chord) == 1:
-            chord_type = 'major'
-        else:
-            chord_type = Chord.CHORD_TYPES[
-                chord.replace(self.tonic, '').strip()]
-        return chord_type
+        return Chord.TYPES.get(chord.replace(self.tonic, '').strip(), 'major')
 
     def tonic(self, chord):
         if len(chord) == 1:
